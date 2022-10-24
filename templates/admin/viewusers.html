@@ -1,0 +1,44 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+  
+  <div style="background-color:white ;" class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><br><br><br>
+       <center><h6 class="panel-title" style="font-size:larger ;">TOTAL USER LIST</h6></center> 
+       <br><br>
+      </div>
+      <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>email</th>
+            
+            <th>Action</th>
+          </tr>
+        </thead>
+        {% for c in users %}
+        <tr>
+          <td> {{c.user.username}}</td>
+          <td>{{c.user.email}}</td>
+          <td><a href="{% url 'delete_user' c.user.id %}" >DELETE</a>
+          
+         
+  
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

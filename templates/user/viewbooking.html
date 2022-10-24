@@ -1,0 +1,56 @@
+{% extends 'home.html'%}
+
+
+{% block content %}
+
+
+
+
+
+<div style="background-color:white ;" class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h6 class="panel-title"></h6>
+      </div>
+      <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Action</th>
+  
+          </tr>
+        </thead>
+        {% for i in bkng %}
+   
+  
+        <tr>
+            <td> {{i.book_id.name}}</td>
+            <td> {{i.category_id.name}}</td>
+            <td> {{i.book_id.description}}</td>
+            <td style="width:20%;">
+                                  
+                <img src="{{ i.book_id.image.url }}" class="w-25">
+          </td>
+          {% if i.request == 1 %}
+          <td><a href="{% url 'view_booking' %}">requested</a></td>
+          {% elif i.request == 2 %}
+          <td><a href="{% url 'view_booking' %}">Approved</a></td>
+          {% elif i.request == 3 %}
+          <td><a href="{% url 'view_booking' %}">canceled</a></td>
+          {% endif %}
+        </tr>
+        {% empty %}
+        
+        <h1 class="col-md-12 text-center">no books</h1>
+       
+        {% endfor %}
+      </table>
+    </div>
+  </div> 
+
+  {% endblock %}
+
+  

@@ -1,0 +1,31 @@
+{% extends 'home.html'%}
+
+
+{% block content %}
+
+
+<div class="col-md-12 row">
+  <div class="col-md-12 "><h3></h3></div>
+  {% for item in vw %}
+  <div class="col-md-3">
+      <div class="card" style="width:200px; height:300px;">
+          <a href=""><img class="card-img-top" style="height:200px ;" src="{{ item.image.url }}"  alt="Card image cap"></a>
+          <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <h5 class="card-title">{{item.description}}</h5>
+          
+            
+            <a href="{% url 'req_booking' item.id %}" class="btn btn-primary">Request to book</a>
+            
+          </div>
+        </div>
+
+  </div>
+  {% empty %}
+  No books to display
+  {%endfor%}
+</div>
+
+
+
+{% endblock %}

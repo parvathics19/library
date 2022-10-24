@@ -1,0 +1,51 @@
+{% extends 'home.html'%}
+
+
+{% block content %}
+
+<div  class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title"></h6>
+    </div>
+    <div class="col-md-12 row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <table class="table table-hover" style="background-color:rgb(48, 106, 157) ;" id="dev-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Action</th>
+  
+          </tr>
+        </thead>
+        {% for i in category %}
+    {% if i %}
+  
+        <tr>
+          <td style="width:80% ;"> {{i.name}}</td>
+          
+          <td  style="width:20% ;">
+          <a class="btn btn-danger btn-xs" href="{% url 'delete_category' i.id %}"><span class="glyphicon glyphicon-trash"></span>DELETE</a></td>
+  
+        </tr>
+        {%else%}
+        <br><br><br>
+        <h1>no products</h1>
+        {% endif %}
+        {% endfor %}
+      </table>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+    
+  </div>
+</div>
+
+
+  
+
+
+
+
+{% endblock %}

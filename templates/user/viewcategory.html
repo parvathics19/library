@@ -1,0 +1,42 @@
+{% extends 'home.html'%}
+
+
+{% block content %}
+
+
+
+
+
+<div style="background-color:white ;" class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h6 class="panel-title"></h6>
+      </div>
+      <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Action</th>
+  
+          </tr>
+        </thead>
+        {% for i in view %}
+   
+  
+        <tr>
+            <td> {{i.name}}</td>
+
+          <td><a href="{% url 'view_book' i.id %}">View books</a></td>
+        </tr>
+        {% empty %}
+        
+        <h1 class="col-md-12 text-center">no books</h1>
+       
+        {% endfor %}
+      </table>
+    </div>
+  </div> 
+
+  {% endblock %}
+
+  

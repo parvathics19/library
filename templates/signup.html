@@ -1,0 +1,66 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<fieldset style="width:700px ;margin-left:450px;background-color: rgb(239, 239, 239);border-radius: 1cm ;opacity:.9;">
+<center><h1 style="margin-top:1cm ;color: rgb(26, 128, 237);">SIGNUP</h1></center>
+{% for i in messages %}
+{{i}}
+{% endfor %}
+<form style="padding:1cm ;" method="POST"  action="{% url 'signup' %}" class="was-validated">
+  {% csrf_token %}
+
+    <div class="mb-3 mt-3">
+      <label for="fname" class="form-label">First name:</label>
+      <input type="text" class="form-control" id="uname" placeholder="Enter first name" name="fname" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="mb-3 mt-3">
+        <label for="lname" class="form-label"> Last name:</label>
+        <input type="text" class="form-control" id="uname" placeholder="Enter last name" name="lname" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="uname" class="form-label">User name:</label>
+        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Email id:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email id" name="email" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="number" class="form-label">Mobile number</label>
+        <input type="number" class="form-control" id="uname" placeholder="Enter Mobile number" name="mobile" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="mb-3 mt-3">
+<button onclick="generate_password()">Generate password</button>   
+   </div>
+
+    <div class="mb-3">
+      <label for="pwd" class="form-label">Create password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pssw" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="mb-3">
+        <label for="pwd" class="form-label">Re-enter password:</label>
+        <input type="password" class="form-control" id="cpwd" placeholder="Re-enter password" name="cpssw" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+      <label class="form-check-label" for="myCheck">Remember me</label>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Check this checkbox to continue.</div>
+    </div>
+    <center><button type="submit" class="btn btn-primary">Register</button></center>
+  </form></fieldset>
+{% endblock %}

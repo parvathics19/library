@@ -1,0 +1,35 @@
+{% extends 'home.html'%}
+
+
+{% block content %}
+
+
+
+<div class="col-md-12 row">
+  <div class="col-md-12 ">
+    <center><h3 style="color:rgb(226, 160, 37) ;">GRAB OUR NEW COLLECTIONS</h3><br><br></center>
+  {% for message in messages%}
+  {{message}}
+    {% endfor %}
+</div>
+  {% for i in pro %}
+  <div class="col-md-3 ">
+    <div class="card" style="width: 280px;margin-left:60px ; height:450px">
+      <a href=""><img class="card-img-top" style="height:300px ;" src="{{ i.image.url }}" alt="Card image cap"></a>
+      <div class="card-body">
+        <h6 class="card-title">₹{{i.quantity}}</h6>
+        <h6 class="card-title">{{i.description}}</h6>
+        <a href="{% url 'issue_book' i.id %}" class="btn btn-primary">Add to cart</a>
+      </div>
+    </div>
+
+  </div>
+  {% empty %}
+  NO category
+  {% endfor %}
+
+</div>
+
+
+
+{% endblock %}

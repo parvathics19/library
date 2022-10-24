@@ -1,0 +1,47 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+<body style=" background-image: url('{% static 'image/lib2.jpg' %}') ">
+<div style="opacity:.8 ;" class="container justify-content-center m-5" >
+  <div style="margin-left:250px ;" class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">               
+
+          <div style="background-color:rgb(245, 245, 223) ;"class="card m-5">
+
+              <form method="POST" action="{% url 'add_book' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <center><h1 style="color:rgb(234, 175, 25) ;">ADD BOOK</h1></center>
+                 
+                  <div class="form-group mx-5 my-3">
+                     <label>NAME OF BOOK</label>
+                      <input type="text" name="name" class="form-control-file">
+                      <label>UPLOAD IMAGE</label>
+                      <input type="file" name="image" class="form-control-file">
+                      <label>DESCRIPTION</label>
+                      <input type="text" name="description" class="form-control-file">
+                      <label>CATEGORY</label>
+                      <select name="category" id=""  class="col-md-12" style="height:30px ;">
+                        {% for i in category %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                        {% endfor %}
+                      </select>
+
+                      
+                      
+                      
+
+                  </div>
+                  <div class="col-md-12 row mb-3"> <div class="col-md-6"><button type="submit" class="col-md-12 btn btn-success"> ADD </button></div>
+                  <div class="col-md-6"><a class="btn btn-block btn-success col-md-12" style="background-color: black;" href="{% url 'show_book' %}">SHOW BOOKS</a>
+                  </div>
+                  </div>
+                  
+                </form>
+          </div>
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+</div></body>
+{% endblock %}
